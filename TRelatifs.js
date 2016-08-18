@@ -64,15 +64,17 @@ document.querySelectorAll('[data-tr]').forEach(function(node) {
             }
         }
 
-        node.innerHTML = prefix + term.text.replace('%d', seconds / Math.round(term.divide));
+        node.innerHTML = prefix + term.text.replace('%d',  Math.round(seconds / term.divide));
 
         window.setTimeout(function() {
-            if (window.requestAnimationFrame) {
+         
+              if (window.requestAnimationFrame) {
                 window.requestAnimationFrame(setText);
             } else {
                 setText();
-            }
-        })
+            }  
+                       
+        },1000)
     }
-
+    setText();
 })
